@@ -146,8 +146,9 @@ export default function Page() {
       await navigator.clipboard.writeText(url);
       setShareSuccess(true);
       setTimeout(() => setShareSuccess(false), 2000);
-    } catch (err) {
+    } catch (e) {
       // Fallback for browsers that don't support clipboard API
+      console.log(e);
       const textArea = document.createElement("textarea");
       textArea.value = window.location.href;
       document.body.appendChild(textArea);
